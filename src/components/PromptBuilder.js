@@ -8,9 +8,9 @@ import Grid from "@mui/material/Grid";
 import "./PromptBuilder.css";
 
 const buttonData = [
-    { title: "Title 1", options: ["Option 1", "Option 2", "Option 3"] },
-    { title: "Title 2", options: ["Option 4", "Option 5", "Option 6"] },
-    { title: "Title 3", options: ["Option 7", "Option 8", "Option 9"] },
+    { title: "Aufgabe", options: ["Artikel", "Blog", "Titel-Idee"] },
+    { title: "Stil", options: ["Akademisch", "Seriös", "Ironisch", "Sarkastisch"] },
+    { title: "Länge", options: ["200-300", "300-400", "400-500"] },
 ];
 
 function PromptBuilder() {
