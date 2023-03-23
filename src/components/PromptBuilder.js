@@ -10,7 +10,7 @@ import "./PromptBuilder.css";
 const buttonData = [
     { title: "Aufgabe", options: ["Artikel", "Blog", "Titel-Idee"] },
     { title: "Stil", options: ["Akademisch", "Seriös", "Ironisch", "Sarkastisch"] },
-    { title: "Länge", options: ["200-300", "300-400", "400-500"] },
+    { title: "Länge", options: ["100-200", "300-400", "400-500"] },
 ];
 
 function PromptBuilder() {
