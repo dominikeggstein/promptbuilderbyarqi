@@ -10,7 +10,7 @@ import "./PromptBuilder.css";
 const buttonData = [
     { title: "Aufgabe", options: ["Artikel", "Blog", "Titel-Idee"] },
     { title: "Stil", options: ["Akademisch", "Seriös", "Ironisch", "Sarkastisch"] },
-    { title: "Länge", options: ["100-200", "300-400", "400-500"] },
+    { title: "Länge", options: ["tl:dr", "100-200", "300-400", "400-500"] },
 ];
 
 function PromptBuilder() {
@@ -71,24 +71,26 @@ function PromptBuilder() {
             ))}
 
             <Box mt={3}>
-                <Typography variant="h5" gutterBottom className="heading">
+                <Typography variant="h6" gutterBottom className="row-title">
                     Dein Prompt
                 </Typography>
                 <Stack direction="column" alignItems="flex-start" spacing={2}>
                     {selectedOptions
+                        .map((option, index) => option ? `${buttonData[index].title}: ${option}` : null)
                         .filter(Boolean)
-                        .map((option, index) => (
+                        .map((summaryOption, index) => (
                             <Typography key={`summary-option-${index}`}>
-                                {buttonData[index].title}: {option}
+                                {summaryOption}
                             </Typography>
                         ))}
+
                     <Button
+                        className="btn-clipboard"
                         variant="outlined"
                         color="primary"
                         startIcon={<FileCopyIcon />}
                         onClick={copyToClipboard}
                         disabled={selectedOptions.every((option) => !option)}
-                        className="btn-clipboard"
                     >
                         Copy to clipboard
                     </Button>
