@@ -1,52 +1,146 @@
-/* PromptBuilder.css */
-.header {
-    background-color: transparent !important;
-    opacity: 20 !important;
-    min-height: 10vh;
-}
-
+/* Basic styling */
 .app {
     display: flex;
     flex-direction: column;
     min-height: auto;
     background: linear-gradient(150deg, #ffecd2 0, #fcb69f);
-  }
-  
-
+}
 
 .app-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
-    min-height: 90vh;
+    min-height: 88vh !important;
 }
 
 .footer {
-    position: absolute !important;
+    position: auto !important;
     bottom: 0;
     width: 100%;
-    height: 10vh;
+    height: 0.5rem !important;
     background-color: transparent !important;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+  
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Poppins", sans-serif !important;
+  }
+  
+
+  
+
+/* AppBar */
+
+
+
+.appbar {
+    height: 8vh !important;
+    display: flex !important;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0) !important;
+    font-weight: 500 !important;
+    font-size: smaller !important;
+    color: #89735e;
+}
+
+.header-appbar {
+    font-weight: bold !important;
+}
+
+
+
+
+/* Header and heading */
+.header {
+    background-color: transparent !important;
+    opacity: 20 !important;
+    min-height: 10vh !important;
+    text-align: left !important;
+}
+
 .heading {
     margin-bottom: 2rem !important;
     text-align: center;
-    font-weight: bold;
+    font-weight: bold !important;
     color: #302f2c;
 }
 
-.row-title {
-    margin-bottom: 0.5rem;
-    font-size: 1.25rem;
+.title-switch-container {
+    display: flex;
+    align-items: center !important;
+    gap: 4vh;
+}
+
+.length-slider {
+    min-width: 40rem !important;
+    max-width: 800px !important;
+}
+
+.slider-value {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-family: "Poppins", sans-serif !important;
+}
+
+
+
+/* Input field */
+.my-input-field {
+    border: 1px solid #ccc;
+    border-radius: 4px !important;
+    padding: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 20rem;
+    margin-right: 20rem;
+    margin-bottom: 0.25rem;
+    opacity: 80%;
+    background-color: rgba(255, 255, 255, 0.662) ;
+}
+
+/* Buttons */
+
+.language-switch .MuiSwitch-switchBase.Mui-checked {
+    color: #0077c8 !important;
+  }
+  .language-switch .MuiSwitch-track.Mui-checked {
+    background-color: #c18686 !important;
+  }
+  .language-switch .MuiSwitch-switchBase:not(.Mui-checked) {
+    color: #c15656 !important;
+  }
+  .language-switch .MuiSwitch-track {
+    background-color: #88b3d0 !important;
+  }
+  
+
+  .language-select {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  
+
+
+.button-container {
+    display: inline-block;
+    margin-left: 0rem !important;
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+    font-family: "Poppins", sans-serif !important;
+
 }
 
 .button-deselected {
     border: 1px solid #967a6b !important;
-    color: #967a6b !important;
+    color: #1d1714 !important;
 }
 
 .button-selected {
@@ -54,11 +148,62 @@
     background-color: #caa490 !important;
 }
 
-.btn-clipboard {
-    border: 1px solid #888 !important;
-    color: #302f2c !important;
+/* Summary and clipboard */
+.prompt-title {
+    font-weight: bold !important;
+    font-size: 28px !important;
+    margin-top: 3rem !important;
 }
 
-.h4 {
-    margin-top: 2vh !important;
+.summary-options-container {
+    padding: 0.5rem;
+    font-family: "Poppins", sans-serif !important;
+}
+
+.btn-clipboard {
+    margin-top: 1rem !important;
+    padding: 8px 24px !important;
+    border: 1px solid #f2ccac !important;
+    color: white !important;
+    opacity: 80%;
+    font-size: 16px !important;
+    background: linear-gradient(60deg, #a08670, #b4957d, #7e6a58);
+    background-size: 400% 400%;
+    animation: animatedgradient 6s ease infinite;
+}
+
+/* Titles and rows */
+.row-title {
+    padding-left: 8px;
+    margin-top: 0.5rem !important;
+}
+
+.row-container {
+    margin: 1rem;
+    margin-left: 0rem !important;
+}
+
+.summary-container {
+    margin: 1rem;
+    margin-left: 0rem !important;
+}
+
+/* Text */
+.h4 {}
+
+.h5 {}
+
+.h6 {}
+
+/* Gradient animation */
+@keyframes animatedgradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }

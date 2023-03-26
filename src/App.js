@@ -1,13 +1,16 @@
 import React from "react";
-import PromptBuilder from "./components/PromptBuilder";
+import { BrowserRouter } from "react-router-dom";
+import Prompt from "./components/Prompt";
 import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="app">
-      <PromptBuilder />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="app">
+        <Prompt />
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 

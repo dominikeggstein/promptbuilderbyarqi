@@ -1,0 +1,57 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: rgba(200, 200, 200, 0);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 56px;
+    transition: width 0.3s;
+    z-index: 10;
+  }
+  
+  .sidebar.open {
+    background: linear-gradient(150deg, #ffecd2 0, #fcb69f);
+    width: 200px;
+    z-index: 10;
+  }
+  
+.menu-button {
+    align-items: center !important;
+}
+
+  .menu-item {
+    display: flex;
+    align-items: center !important;
+    cursor: pointer;
+    padding: 1rem;
+    font-size: 18px;
+    font-weight: 500;
+    color: #302f2c;
+  }
+  
+  .menu-item:hover {
+    background-color: rgba(200, 200, 200, 0.1);
+  }
+  
+  .menu-item-icon {
+    margin-right: 8px;
+  }
+  
+  .app {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .app-container {
+    max-width: 800px;
+    padding: 2rem;
+    padding-left: 2.5rem;
+    min-height: 88vh !important;
+    transition: margin-left 0.3s;
+  }
+  
+  
+
+  
