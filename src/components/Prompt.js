@@ -9,7 +9,19 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CreateIcon from '@mui/icons-material/EditOutlined';
 import MailIcon from '@mui/icons-material/MailOutlineRounded';
 import CalenderIcon from '@mui/icons-material/PermContactCalendarOutlined';
+import DataObjectRoundedIcon from '@mui/icons-material/DataObjectRounded';
+import TranslateRoundedIcon from '@mui/icons-material/TranslateRounded';
 import "./Prompt.css";
+import creativityKitDE from "./creativityKitDE";
+import creativityKitEN from "./creativityKitEN";
+import mailKitDE from "./mailKitDE";
+import mailKitEN from "./mailKitEN";
+import dataKitDE from "./dataKitDE";
+import dataKitEN from "./dataKitEN";
+import translateKitDE from "./translateKitDE";
+import translateKitEN from "./translateKitEN";
+
+
 
 function App() {
   const [currentData, setCurrentData] = useState({ buttonData, buttonDataEN });
@@ -23,12 +35,19 @@ function App() {
     setDrawerOpen(!drawerOpen);
   };
 
-  const renderMenuItem = (icon, text, dataSet) => (
-    <Box onClick={() => handleDataSetChange(dataSet)} className="menu-item">
+  const renderMenuItem = (key, icon, text, dataSet) => (
+    <Box
+      key={key}
+      onClick={() => {
+        handleDataSetChange(dataSet);
+      }}
+      className="menu-item"
+    >
       <Box className="menu-item-icon">{icon}</Box>
       {drawerOpen && <Typography>{text}</Typography>}
     </Box>
   );
+
 
   return (
     <Box className="app">
@@ -43,22 +62,32 @@ function App() {
             <MenuIcon />
           </IconButton>
         </Box>
-        {renderMenuItem(<CreateIcon />, "Original Data Set", {
-          buttonData,
-          buttonDataEN,
+        {renderMenuItem("creativityKit", <CreateIcon className="menu-icon" />, "creativityKit", {
+          buttonData: creativityKitDE,
+          buttonDataEN: creativityKitEN,
         })}
-        {renderMenuItem(<MailIcon />, "Dummy Data Set 1", {
-          buttonData: buttonDataDummy1,
-          buttonDataEN: buttonDataDummy1,
+        {renderMenuItem("mailKit", <MailIcon className="menu-icon" />, "mailKit", {
+          buttonData: mailKitDE,
+          buttonDataEN: mailKitEN,
         })}
-        {renderMenuItem(<CalenderIcon />, "Dummy Data Set 2", {
-          buttonData: buttonDataDummy2,
-          buttonDataEN: buttonDataDummy2,
+        {renderMenuItem("dataKit", <DataObjectRoundedIcon className="menu-icon" />, "dataKit", {
+          buttonData: dataKitDE,
+          buttonDataEN: dataKitEN,
         })}
+        {renderMenuItem("translateKit", <TranslateRoundedIcon className="menu-icon" />, "translateKit", {
+          buttonData: translateKitDE,
+          buttonDataEN: translateKitEN,
+        })}
+
       </Box>
       <Box component="main" className="app-container">
-  <PromptBuilder buttonData={currentData.buttonData} buttonDataEN={currentData.buttonDataEN} />
-</Box>
+        <PromptBuilder
+          key={currentData.buttonData}
+          buttonData={currentData.buttonData}
+          buttonDataEN={currentData.buttonDataEN}
+        />
+
+      </Box>
 
     </Box>
   );
