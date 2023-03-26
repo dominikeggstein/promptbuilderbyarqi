@@ -6,9 +6,9 @@ import buttonDataDummy1 from "./buttonDataDummy1";
 import buttonDataDummy2 from "./buttonDataDummy2";
 import { Typography, IconButton, Box } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import HomeIcon from "@mui/icons-material/Home";
-import StarIcon from "@mui/icons-material/Star";
-import SettingsIcon from "@mui/icons-material/Settings";
+import CreateIcon from '@mui/icons-material/EditOutlined';
+import MailIcon from '@mui/icons-material/MailOutlineRounded';
+import CalenderIcon from '@mui/icons-material/PermContactCalendarOutlined';
 import "./Prompt.css";
 
 function App() {
@@ -43,15 +43,15 @@ function App() {
             <MenuIcon />
           </IconButton>
         </Box>
-        {renderMenuItem(<HomeIcon />, "Original Data Set", {
+        {renderMenuItem(<CreateIcon />, "Original Data Set", {
           buttonData,
           buttonDataEN,
         })}
-        {renderMenuItem(<StarIcon />, "Dummy Data Set 1", {
+        {renderMenuItem(<MailIcon />, "Dummy Data Set 1", {
           buttonData: buttonDataDummy1,
           buttonDataEN: buttonDataDummy1,
         })}
-        {renderMenuItem(<SettingsIcon />, "Dummy Data Set 2", {
+        {renderMenuItem(<CalenderIcon />, "Dummy Data Set 2", {
           buttonData: buttonDataDummy2,
           buttonDataEN: buttonDataDummy2,
         })}
