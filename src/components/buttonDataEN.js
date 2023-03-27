@@ -1,10 +1,10 @@
-const buttonDataEN = [  { title: "Topic", options: [{ type: "input" }] },
-  { title: "Task", options: ["Article", "Paragraph", "Title Ideas", "Blog", "Email", "Brainstorm",{ type: "input" }], multipleChoice: false },
-  { title: "Style", options: ["Academic", "Serious", "Ironic", "Sarcastic",{ type: "input" }], multipleChoice: true },
-  { title: "Target Audience", options: ["Builder", "Entrepreneur", "Team Member", "Internal Company", "External Company", { type: "input" }], multipleChoice: true },
+const buttonDataEN = [
+  { title: "Topic", options: [{ type: "input" }] },
+  { title: "Task", options: ["Article", "Interview", "Paragraph", "Title Ideas", "Blog", "Email", "Brainstorm", "Product Description", "Press Release", "Analysis", "Report", { type: "input" }], multipleChoice: false },
+  { title: "Style", options: ["Academic", "Formal", "Informal", "Narrative", "Persuasive", "Informative", "Descriptive", "Ironic", "Sarcastic", { type: "input" }], multipleChoice: true },
+  { title: "Target Audience", options: ["Builder", "Entrepreneur", "Team Member", "Company-Internal", "Company-External", "Investors", "Professionals", "Seniors", "Children", "Students", "Parents", { type: "input" }], multipleChoice: true },
+  { title: "Structure", options: ["Heading", "Subtitle", "Introduction", "Main Part", "Summary", "List", "Instruction", "Case Study", "Critique", "Comparison", "FAQ", { type: "input" }], multipleChoice: true },
+  { title: "Call to Action", options: ["Learn More", "Contact Us", { type: "input" }] },
   { title: "Length", options: [{ type: "slider" }] },
-  { title: "Call to Action", options: [{ type: "input" }] },
-  { title: "Format", options: ["Headline", "Subtitle", "Introduction", "Main Body", "FAQ", "Summary",{ type: "input" }], multipleChoice: true },
 ];
-
 export default buttonDataEN;

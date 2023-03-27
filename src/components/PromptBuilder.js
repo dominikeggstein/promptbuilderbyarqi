@@ -24,6 +24,13 @@ function PromptBuilder({ buttonData, buttonDataEN }) {
         setLanguage(language === "de" ? "en" : "de");
     };
 
+    const handleInputChange = (rowIndex, value) => {
+        const newSelectedOptions = [...selectedOptions];
+        newSelectedOptions[rowIndex] = value;
+        setSelectedOptions(newSelectedOptions);
+    };
+
+
     const handleButtonClick = (rowIndex, option) => {
         const newSelectedOptions = [...selectedOptions];
         if (currentButtonData[rowIndex].multipleChoice) {
@@ -46,7 +53,10 @@ function PromptBuilder({ buttonData, buttonDataEN }) {
     const copyToClipboard = () => {
         const summary = selectedOptions
             .map((option, index) => {
-                if (option) {
+                if (
+                    (Array.isArray(option) && option.length > 0) ||
+                    (!Array.isArray(option) && option)
+                ) {
                     if (Array.isArray(option)) {
                         return `${currentButtonData[index].title}: ${option.join(", ")}`;
                     } else {
@@ -67,6 +77,7 @@ function PromptBuilder({ buttonData, buttonDataEN }) {
             }
         );
     };
+
 
     return (
         <div className="app-container">
@@ -102,7 +113,7 @@ function PromptBuilder({ buttonData, buttonDataEN }) {
                                     className="my-input-field"
                                     type="text"
                                     value={selectedOptions[rowIndex] || ""}
-                                    onChange={(e) => handleButtonClick(rowIndex, e.target.value)}
+                                    onChange={(e) => handleInputChange(rowIndex, e.target.value)}
                                 />
                             ) : option.type === "slider" ? (
                                 <>
@@ -146,7 +157,7 @@ function PromptBuilder({ buttonData, buttonDataEN }) {
                     </Typography>
                 )}
                 <div className="summary-options-container">
-                {selectedOptions.map((option, index) => {
+                    {selectedOptions.map((option, index) => {
                         if (Array.isArray(option) && option.length > 0) {
                             return (
                                 <Typography key={`summary-option-${index}`}>

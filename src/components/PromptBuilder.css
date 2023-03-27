@@ -189,11 +189,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Text */
+/*
 .h4 {}
 
 .h5 {}
 
 .h6 {}
+*/
 
 /* Gradient animation */
 @keyframes animatedgradient {
@@ -206,4 +208,18 @@ h1, h2, h3, h4, h5, h6 {
     100% {
         background-position: 0% 50%;
     }
+}
+
+
+
+@media (max-width: 600px) {
+  .length-slider {
+    min-width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .my-input-field {
+    width: 100%;
+    margin-right: 0;
+  }
 }

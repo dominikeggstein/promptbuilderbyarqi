@@ -1,4 +1,4 @@
-const buttonDataDummy1 = [
+const mailKitDE = [
   { title: "Thema", options: [{ type: "input" }] },
   { title: "Aufgabe", options: ["Newsletter", "E-Mail-Kampagne", "Einladungs-E-Mail", "Follow-up-E-Mail", "Willkommens-E-Mail", "Abonnementbestätigung", "E-Mail-Vorlage", "Bewerbungsemail", { type: "input" }], multipleChoice: false },
   { title: "Stil", options: ["Formell", "Informell", "Persönlich", "Professionell", "Freundlich", "Informativ", "Überzeugend", "Kurz und bündig", { type: "input" }], multipleChoice: true },
@@ -22,4 +22,4 @@ const buttonDataDummy1 = [
   { title: "Länge", options: [{ type: "slider" }] },
 ];
 
-export default buttonDataDummy1;
+export default mailKitDE;
