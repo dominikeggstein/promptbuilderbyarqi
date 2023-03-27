@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
+import FileCopyOutlinedIcon from "@mui/icons-material/FileCopyOutlined";
 import "./PromptBuilder.css";
 import Switch from "@mui/material/Switch";
 import Slider from "@mui/material/Slider";
+
 
 
 
@@ -50,7 +52,8 @@ function PromptBuilder({ buttonData, buttonDataEN }) {
 
 
 
-    const copyToClipboard = () => {
+    const generateText = async () => {
+        console.log("generateText function called")
         const summary = selectedOptions
             .map((option, index) => {
                 if (
@@ -68,15 +71,46 @@ function PromptBuilder({ buttonData, buttonDataEN }) {
             })
             .filter(Boolean)
             .join("\n");
-        navigator.clipboard.writeText(summary).then(
+
+        try {
+            const response = await fetch("http://localhost:3001/api/generate-text", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ prompt: summary }),
+            });
+
+            console.log("Fetch response:", response)
+
+            if (response.ok) {
+                const generatedText = await response.json();
+                setGeneratedText(generatedText);
+                console.log("Generated text:", generatedText);
+            } else {
+                const errorData = await response.json();
+                console.error("Failed to generate text:", errorData.error);
+            }
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    };
+
+
+    const [generatedText, setGeneratedText] = useState("");
+
+    const copyToClipboard = () => {
+        navigator.clipboard.writeText(generatedText).then(
             () => {
-                console.log("Text copied to clipboard");
+                console.log("Copied to clipboard successfully!");
             },
             (err) => {
-                console.error("Failed to copy text: ", err);
+                console.error("Could not copy text: ", err);
             }
         );
     };
+
+
 
 
     return (
@@ -179,15 +213,40 @@ function PromptBuilder({ buttonData, buttonDataEN }) {
 
                 </div>
                 <Button
-                    className="btn-clipboard"
+                    className="btn-generate"
                     variant="outlined"
                     color="primary"
                     startIcon={<FileCopyIcon />}
-                    onClick={copyToClipboard}
+                    onClick={async () => {
+                        await generateText();
+                    }}
                     disabled={selectedOptions.every((option) => !option)}
+                >
+                    Generate
+                </Button>
+                <Button
+                    className="btn-clipboard"
+                    variant="outlined"
+                    color="primary"
+                    startIcon={<FileCopyOutlinedIcon />}
+                    onClick={copyToClipboard}
+                    disabled={!generatedText}
                 >
                     Copy to clipboard
                 </Button>
+            </div>
+
+            <div className="generated-text-container">
+                <Typography variant="h5" gutterBottom>
+                    Generated Text:
+                </Typography>
+                <Typography>
+                    <pre style={{ whiteSpace: "pre-wrap", wordWrap: "break-word", maxWidth: "800px" }}>
+                        {generatedText}
+                    </pre>
+                </Typography>
+
+
             </div>
 
         </div>
