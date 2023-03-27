@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/promptbuilderbyarqi/static/css/main.12ed32b3.css",
+    "main.js": "/promptbuilderbyarqi/static/js/main.b8635e7a.js",
+    "index.html": "/promptbuilderbyarqi/index.html",
+    "main.12ed32b3.css.map": "/promptbuilderbyarqi/static/css/main.12ed32b3.css.map",
+    "main.b8635e7a.js.map": "/promptbuilderbyarqi/static/js/main.b8635e7a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.12ed32b3.css",
+    "static/js/main.b8635e7a.js"
+  ]
+}
